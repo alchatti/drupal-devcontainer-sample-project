@@ -10,6 +10,13 @@ This is a sample project using Drupal 9 & PHP 8 for demonstrating [Drupal Devcon
 git clone --recurse-submodules https://github.com/alchatti/drupal-devcontainer-sample-project.git drupal-dev-1
 ```
 
+2.Create `pnpm-store` Docker volume
+
+```bash
+docker volume create pnpm-store
+```
+
+
 2.Using `devcontainer cli` access `drupal-dev-1` folder and start the project.
 
 ```bash
