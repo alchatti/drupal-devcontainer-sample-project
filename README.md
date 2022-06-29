@@ -17,14 +17,14 @@ docker volume create pnpm-store
 ```
 
 
-2.Using `devcontainer cli` access `drupal-dev-1` folder and start the project.
+3.Using `devcontainer cli` access `drupal-dev-1` folder and start the project.
 
 ```bash
 cd drupal-dev-1
 devcontainer open .
 ```
 
-3.Inside the devcontainer using VS Code integrated terminal install dependencies using the container script.
+4.Inside the devcontainer using VS Code integrated terminal install dependencies using the container script.
 
 ```bash
 # Option (A) project composer dependencies version [Not Up to date]
@@ -33,9 +33,9 @@ composer install
 yes | composer update
 ```
 
-4.In the browser visit http://localhost and start drupal installation using standard profile.
+5.In the browser visit http://localhost and start drupal installation using standard profile.
 
-5.Fill in the site information.
+6.Fill in the site information.
 
 ## References
 
