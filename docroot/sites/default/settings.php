@@ -813,15 +813,11 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
-  'database' => 'db',
-  'username' => 'drupal',
-  'password' => 'drupalPASS',
-  'prefix' => '',
-  'host' => 'database',
-  'port' => '3306',
-  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
-  'driver' => 'mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-);
-$settings['config_sync_directory'] = 'sites/default/files/config_iQ_PxES-xh36ROgV_g9WnxsxjfxIOwqXu1LqyUJcVdJRdHJprtJ0Z3mKeY0IU7CQJ5zWaC0TMg/sync';
+// Move Config sync folder to outside of Apache public folder
+$settings['config_sync_directory'] = '../config';
+// Use the generated salt outside of Apache public folder
+$settings['hash_salt'] = file_get_contents('../.drupal-salt');
+// Use `dev.settings.php` when it exists, docker will mount path when devcontainer
+if (file_exists('/var/www/site-dev/dev.settings.php')) {
+  include '/var/www/site-dev/dev.settings.php';
+}
